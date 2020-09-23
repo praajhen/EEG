@@ -1,17 +1,11 @@
 
-subjectdata.subjectdir        = 'M:\Projects\eSeek\Study3_EEG\data\PRE_Processing\ANT';
-subjectdata.datadir         =  {'ID_102_RAW.set','ID_103_RAW.set','ID_105_RAW.set','ID_108_RAW.set','ID_113_RAW.set','ID_114_RAW.set','ID_119_RAW.set','ID_123_RAW.set','ID_126_RAW.set','ID_130_RAW.set','ID_132_RAW.set','ID_142_RAW.set','ID_144_RAW.set','ID_147_RAW.set','ID_151_RAW.set','ID_152_RAW.set','ID_157_RAW.set','ID_160_RAW.set','ID_161_RAW.set','ID_162_RAW.set','ID_164_RAW.set','ID_166_RAW.set','ID_167_RAW.set','ID_174_RAW.set','ID_179_RAW.set','ID_181_RAW.set','ID_185_RAW.set','ID_186_RAW.set','ID_188_RAW.set','ID_190_RAW.set','ID_197_RAW.set','ID_198_RAW.set','ID_202_RAW.set','ID_206_RAW.set','ID_214_RAW.set','ID_216_RAW.set','ID_218_RAW.set','ID_219_RAW.set','ID_225_RAW.set','ID_233_RAW.set','ID_236_RAW.set','ID_251_RAW.set','ID_258_RAW.set','ID_265_RAW.set','ID_270_RAW.set','ID_271_RAW.set','ID_274_RAW.set','ID_276_RAW.set','ID_279_RAW.set','ID_283_RAW.set','ID_286_RAW.set','ID_288_RAW.set','ID_296_RAW.set','ID_297_RAW.set','ID_298_RAW.set','ID_305_RAW.set','ID_312_RAW.set','ID_322_RAW.set','ID_323_RAW.set','ID_326_RAW.set','ID_332_RAW.set','ID_340_RAW.set','ID_350_RAW.set','ID_352_RAW.set','ID_353_RAW.set','ID_354_RAW.set','ID_356_RAW.set','ID_365_RAW.set','ID_369_RAW.set','ID_374_RAW.set','ID_380_RAW.set','ID_393_RAW.set','ID_394_RAW.set','ID_399_RAW.set','ID_407_RAW.set','ID_418_RAW.set','ID_419_RAW.set','ID_423_RAW.set','ID_425_RAW.set','ID_429_RAW.set','ID_433_RAW.set','ID_440_RAW.set','ID_444_RAW.set','ID_447_RAW.set','ID_458_RAW.set','ID_459_RAW.set','ID_461_RAW.set','ID_462_RAW.set','ID_465_RAW.set','ID_481_RAW.set','ID_492_RAW.set','ID_502_RAW.set','ID_505_RAW.set','ID_508_RAW.set','ID_531_RAW.set','ID_537_RAW.set'};
-subjectdata.datanr = {'102','103','105','108','113','114','119','123','126','130','132','142','144','147','151','152','157','160','161','162','164','166','167','174','179','181','185','186','188','190','197','198','202','206','214','216','218','219','225','233','236','251','258','265','270','271','274','276','279','283','286','288','296','297','298','305','312','322','323','326','332','340','350','352','353','354','356','365','369','374','380','393','394','399','407','418','419','423','425','429','433','440','444','447','458','459','461','462','465','481','492','502','505','508','531','537'};
-subjectdata.conditions = {'11', '12', '13','14', {'21' '23' '25' '27'}, {'22' '24' '26' '28'} };
-
-%Interpolated subjects
-subjectdata.datadir =  {'ID_105_RAW.set','ID_132_RAW.set','ID_144_RAW.set','ID_225_RAW.set','ID_274_RAW.set','ID_305_RAW.set','ID_423_RAW.set','ID_429_RAW.set'};
-subjectdata.datanr  = {'105','132','144','225','274','305','423','429'};
-  
+subjectdata.subjectdir        = 'directory';
+subjectdata.datadir         =  {'file1.set','file2.set'}; % data
+subjectdata.datanr = {'file1','file2'}; % file_name
+subjectdata.conditions = {'11', '12', '13','14', {'21' '23' '25' '27'}, {'22' '24' '26' '28'} }; %triggers
 
 
-
-%Read the EEG data and eye tracking  (only correct responses, ROI)
+%Read the EEG data and eye tracking  (only correct responses, Region of interest)
 
 for  k = 1:length(subjectdata.datanr);
     
@@ -154,7 +148,7 @@ for  k = 1:length(subjectdata.datanr);
         
         
         
-        outputdir = 'C:\MyTemp\Project updates\Next update\binarychecktrials';
+        outputdir = 'directory';
         xlswrite([outputdir filesep subjectdata.datanr{1,k} '_' xyz ],binary);
         
        
@@ -308,7 +302,7 @@ for  k = 1:length(subjectdata.datanr);
             % cfg.keeptrials = 'yes';
             timelock = ft_timelockanalysis(cfg,editdata);
             
-            outputdir = 'C:\MyTemp\Project updates\next update\Timelock';
+            outputdir = 'directory';
             
             
             newField =  ['avg' num2str(subjectdata.datanr{k}) xyz ];
@@ -347,5 +341,5 @@ for s =  1: length(subject);
     result = [result, subject{1,s}]
 end
 
-%xlswrite('result_1092016',result)
+%xlswrite('filename',result)
 
